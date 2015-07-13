@@ -1,1 +1,0 @@
-/Users/mderaldo/.yadr/vimrc
