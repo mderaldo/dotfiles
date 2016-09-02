@@ -1,52 +1,70 @@
-set nocompatible              " be iMproved, required
-filetype off                  " required
-
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
-
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
-
-" The following are examples of different formats supported.
-" Keep Plugin commands between vundle#begin/end.
-" plugin on GitHub repo
-Plugin 'tpope/vim-fugitive'
-" plugin from http://vim-scripts.org/vim/scripts.html
-Plugin 'L9'
-" Git plugin not hosted on GitHub
-Plugin 'git://git.wincent.com/command-t.git'
-" git repos on your local machine (i.e. when working on your own plugin)
-Plugin 'file:///home/gmarik/path/to/plugin'
-" The sparkup vim script is in a subdirectory of this repo called vim.
-" Pass the path to set the runtimepath properly.
-Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
-" Avoid a name conflict with L9
-Plugin 'user/L9', {'name': 'newL9'}
-
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
-"
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
-
-
-"Ativa a sintaxe por padrão
+set nocompatible
 syntax on
+filetype off
+set rtp+=~/.vim/bundle/Vundle.vim/
+call vundle#begin()
 
-"Numeração das linhas
-set number
+" Let vundle manage itself
+Plugin 'VundleVim/Vundle.vim' 
 
+"Other Plugins
+Plugin 'scrooloose/nerdtree'
+Plugin 'tfnico/vim-gradle'
+Plugin 'kien/ctrlp.vim'
 
-Plugin 'pangloss/vim-javascript'
+"Color schemes
+Plugin 'chriskempson/base16-vim'
+
+call vundle#end()
+filetype plugin indent on
+
+" ┌───────────────────────────────────┐
+" │             Settings              │
+" └───────────────────────────────────┘
+
+" Forcing the use of hjkl keys to navigate
+noremap <Up> <nop>
+noremap <Down> <nop>
+noremap <Left> <nop>
+noremap <Right> <nop>
+
+set mouse=a "Enable mouse in all modes
+set number " Line numbers on
+
+" Ignore case in searches
+set ignorecase
+
+" Never ever let Vim write a backup file! They did that in the 70’s.
+" Use modern ways for tracking your changes (like git), for God’s sake
+set nobackup
+set noswapfile
+
+set expandtab       "Use softtabstop spaces instead of tab characters for indentation
+set shiftwidth=4    "Indent by 4 spaces when using >>, <<, == etc.
+set softtabstop=4   "Indent by 4 spaces when pressing <TAB>
+
+set autoindent      "Keep indentation from previous line
+set smartindent     "Automatically inserts indentation in some cases
+set cindent         "Like smartindent, but stricter and more customisable
+
+" ┌───────────────────────────────────┐
+" │               Theme               │
+" └───────────────────────────────────┘
+
+" Fonts for Mac
+" set guifont=Monaco\ for\ Powerline:h15
+" set guifont=Menlo\ Regular:h16
+" set guifont=Hack:h15
+" set guifont=Anonymous\ Pro:h17
+" set guifont=Inconsolata-dz:h17
+set guifont=Roboto\ Mono\ for\ Powerline:h15
+
+" Don't show the top bar
+set guioptions-=T
+
+" Syntax on
+syntax on
+let base16colorspace=256  " Access colors present in 256 colorspace
+colorscheme base16-tomorrow
+
+" Download color scheme from  https://github.com/chriskempson/base16-vim
