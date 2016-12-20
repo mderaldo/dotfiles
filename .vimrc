@@ -90,7 +90,6 @@ let NERDTreeIgnore=['\.swp$', '\.pyc$', '\.class$']
 "Close when the nerdtree is the only window left
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
-
 " ┌───────────────────────────────────┐
 " │               CtrlP               │
 " └───────────────────────────────────┘
