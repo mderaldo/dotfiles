@@ -62,8 +62,6 @@ au BufNewFile,BufRead *.py
 
 au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
 
-let g:ctrlp_custo_ignore = '\v[\/](build|.git)$'
-
 " 
 " Pymode
 let g:pymode = 1
@@ -78,7 +76,9 @@ let g:pymode_doc_bind = "<C-S-d>"
 
 let g:pymode_indent = 1
 
-" =============== NerdTree  ==================
+" ┌───────────────────────────────────┐
+" │             NERDTree              │
+" └───────────────────────────────────┘
 "
 " Open by default
 autocmd StdinReadPre * let s:std_in=1
@@ -86,9 +86,22 @@ autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in
 
 let NERDTreeShowHidden=1
 let NERDTreeIgnore=['\.swp$', '\.pyc$', '\.class$']
-" Closing automatically
-let NERDTreeQuitOnOpen = 1
+
+"Close when the nerdtree is the only window left
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+
 " ┌───────────────────────────────────┐
+" │               CtrlP               │
+" └───────────────────────────────────┘
+let g:ctrlp_custo_ignore = {
+    \ 'dir': '\v[\/]\.(git|hg|svn|build)$',
+    \ 'file': '\v\.(exe|so|dll|pyc)$'
+\ }
+
+
+" ┌───────────────────────────────────┐
+
 " │               Theme               │
 " └───────────────────────────────────┘
 
