@@ -9,8 +9,12 @@ Plugin 'VundleVim/Vundle.vim'
 
 "Other Plugins
 Plugin 'scrooloose/nerdtree'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'tfnico/vim-gradle'
 Plugin 'kien/ctrlp.vim'
+Plugin 'vim-scripts/groovy.vim'
+Plugin 'rking/ag.vim'
+Plugin 'klen/python-mode'
 
 "Color schemes
 Plugin 'chriskempson/base16-vim'
@@ -47,6 +51,43 @@ set autoindent      "Keep indentation from previous line
 set smartindent     "Automatically inserts indentation in some cases
 set cindent         "Like smartindent, but stricter and more customisable
 
+au BufNewFile,BufRead *.py
+    \ set tabstop=4
+    \ set softtabstop=4
+    \ set shiftwidth=4
+    \ set textwidth=79
+    \ set expandtab
+    \ set autoindent
+    \ set fileformat=unix
+
+au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
+
+let g:ctrlp_custo_ignore = '\v[\/](build|.git)$'
+
+" 
+" Pymode
+let g:pymode = 1
+" Override go-to.definition key shortcut to Ctrl-]
+let g:pymode_rope_goto_definition_bind = "<C-]>"
+
+" " Override run current python file key shortcut to Ctrl-Shift-e
+let g:pymode_run_bind = "<C-S-e>"
+
+" " Override view python doc key shortcut to Ctrl-Shift-d
+let g:pymode_doc_bind = "<C-S-d>"
+
+let g:pymode_indent = 1
+
+" =============== NerdTree  ==================
+"
+" Open by default
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
+
+let NERDTreeShowHidden=1
+let NERDTreeIgnore=['\.swp$', '\.pyc$', '\.class$']
+" Closing automatically
+let NERDTreeQuitOnOpen = 1
 " ┌───────────────────────────────────┐
 " │               Theme               │
 " └───────────────────────────────────┘
