@@ -88,6 +88,9 @@ let NERDTreeShowHidden=1
 let NERDTreeIgnore=['\.swp$', '\.pyc$', '\.class$']
 " Closing automatically
 let NERDTreeQuitOnOpen = 1
+
+"Close when the nerdtree is the only window left
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 " ┌───────────────────────────────────┐
 " │               Theme               │
 " └───────────────────────────────────┘
