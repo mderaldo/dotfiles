@@ -6,6 +6,7 @@ export M2_HOME=/usr/local/Cellar/maven/3.3.3
 export M2=$M2_HOME/bin
 export PATH=$M2:$PATH
 
+
 export EDITOR='vim'
 
 # Set name of the theme to load.
@@ -14,9 +15,10 @@ export EDITOR='vim'
 # time that oh-my-zsh is loaded.
 ZSH_THEME="cloud"
 
+# # ZSH Plugins
+plugins=(git cp tmux vi-mode docker rvm gitignore npm nvm vim-interactioni vundle)
 
 source $ZSH/oh-my-zsh.sh
-
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -24,15 +26,15 @@ source $ZSH/oh-my-zsh.sh
 # ssh
 export SSH_KEY_PATH="~/.ssh/dsa_id"
 
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Aliases
- alias zshconfig="vim ~/.zshrc"
- alias ohmyzsh="vim ~/.oh-my-zsh"
+source $ZSH/oh-my-zsh.sh
 
+# Set colors to match iTerm2 Terminal Colors
+export TERM=xterm-256color
+
+# Aliases
+alias zshconfig="vim ~/.zshrc"
+alias ohmyzsh="vim ~/.oh-my-zsh"
+alias ls="ls -al"
 
 function setjdk() {  
 	if [ $# -ne 0 ]; then  
@@ -50,8 +52,13 @@ function setjdk() {
 	export PATH=$(echo $PATH | sed -E -e "s;:$1;;" -e "s;$1:?;;")  
 }
 
-#Color scheme
-BASE16_SHELL=$HOME/.config/base16-shell/
-[ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
 
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+export PATH=$PATH:/opt/local/bin
+export MANPATH=$MANPATH:/opt/local/share/man
+export INFOPATH=$INFOPATH:/opt/local/share/info 
 
+source $HOME/.rvm/scripts/rvm
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
