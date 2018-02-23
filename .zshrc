@@ -25,11 +25,7 @@ export DEFAULT_USER="melderaldo"
 export LANG=en_US.UTF-8
 
 # Editor for local and remote sessions
-if [[ -n $SSH_CONNECTION ]]; then
-   export EDITOR='code'
-else
-   export EDITOR='code'
-fi
+export EDITOR='code'
 
 # SSH
 export SSH_KEY_PATH="~/.ssh/rsa_id"
