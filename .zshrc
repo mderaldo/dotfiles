@@ -19,7 +19,7 @@ plugins=(git lol python brew zsh-autosuggestions zsh-syntax-highlighting)
 
 # User configuration
 # To hide the username from the prompt inform the username in the DEFAULT_USER
-#DEFAULT_USER="<PUT_YOUT_USERNAME>"
+DEFAULT_USER='whoami'
 
 
 export MANPATH="/usr/local/man:$MANPATH"
