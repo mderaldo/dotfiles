@@ -12,14 +12,15 @@ ZSH_THEME="agnoster"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 COMPLETION_WAITING_DOTS="true"
+DISABLE_AUTO_UPDATE=true
 
 # ZSH Plugins
-plugins=(git lol python)
+plugins=(git lol python brew zsh-autosuggestions zsh-syntax-highlighting)
 
 # User configuration
-export DEFAULT_USER="melderaldo"
+DEFAULT_USER="mel"
 
-# export MANPATH="/usr/local/man:$MANPATH"
+export MANPATH="/usr/local/man:$MANPATH"
 
 # Set language environment
 export LANG=en_US.UTF-8
@@ -34,20 +35,17 @@ export SSH_KEY_PATH="~/.ssh/rsa_id"
 export TERM=xterm-256color
 
 # Set alias
-source $HOME/.zsh_alias
-source $ZSH/oh-my-zsh.sh
-
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+[ -f $HOME/.zsh_alias ] && source $HOME/.zsh_alias
+[ -f $ZSH/oh-my-zsh.sh ] && source $ZSH/oh-my-zsh.sh
 
 function hi_beauty(){
-  eval "cat $HOME/dotfiles/.hi_beauty.txt"
+  eval "cat $HOME/.dotfiles/.hi_beauty.txt"
   echo \
 }
 
 hi_beauty
 
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change
 export GPG_TTY=$(tty)
 
 function setjdk() {  
