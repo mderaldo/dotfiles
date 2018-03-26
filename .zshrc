@@ -18,7 +18,9 @@ DISABLE_AUTO_UPDATE=true
 plugins=(git lol python brew zsh-autosuggestions zsh-syntax-highlighting)
 
 # User configuration
-DEFAULT_USER="mel"
+# To hide the username from the prompt inform the username in the DEFAULT_USER
+#DEFAULT_USER="<PUT_YOUT_USERNAME>"
+
 
 export MANPATH="/usr/local/man:$MANPATH"
 
@@ -47,6 +49,7 @@ hi_beauty
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change
 export GPG_TTY=$(tty)
+
 
 function setjdk() {  
 	if [ $# -ne 0 ]; then  
