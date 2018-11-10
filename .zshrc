@@ -15,12 +15,21 @@ COMPLETION_WAITING_DOTS="true"
 DISABLE_AUTO_UPDATE=true
 
 # ZSH Plugins
-plugins=(git lol python brew zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(	git 
+			brew 
+			gradle
+			jenv
+			zsh-autosuggestions 
+			zsh-syntax-highlighting 
+			)
+
+# Autosuggestion Plugin configuration 
+ZSH_AUTOSUGGEST_STRATEGY='match_prev_cmd'
+bindkey 'RIGHT' autosuggest-accept
 
 # User configuration
 # To hide the username from the prompt inform the username in the DEFAULT_USER
 DEFAULT_USER='whoami'
-
 
 export MANPATH="/usr/local/man:$MANPATH"
 
@@ -32,6 +41,11 @@ export EDITOR='code'
 
 # SSH
 export SSH_KEY_PATH="~/.ssh/rsa_id"
+
+# load ssh-agent and add my keys
+eval "$(ssh-agent -s)"
+ssh-add -K ~/.ssh/id_rsa_*
+
 
 # Set colors to match iTerm2 Terminal Colors
 export TERM=xterm-256color
