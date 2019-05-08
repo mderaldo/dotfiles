@@ -55,7 +55,7 @@ export TERM=xterm-256color
 [ -f $ZSH/oh-my-zsh.sh ] && source $ZSH/oh-my-zsh.sh
 
 function hi_beauty(){
-  eval "cat $HOME/.dotfiles/.hi_beauty.txt"
+  [ -f $HOME/.dotfiles/.hi_beauty.txt ] && eval "cat $HOME/.dotfiles/.hi_beauty.txt"
   echo \
 }
 
