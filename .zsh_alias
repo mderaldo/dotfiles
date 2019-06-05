@@ -6,7 +6,12 @@ alias project='cd ~/Projects'
 alias docs='cd ~/Documents'
 alias zshconfig="code ~/.zshrc"
 alias ohmyzsh="code ~/.oh-my-zsh"
-alias ls="ls -al"
+alias list='ls -al'
+alias load_rc='source ~/.zshrc'
+alias restart-terminal='exec $SHELL -l'
+alias load='source'
+alias diff='code --diff'
+alias lc='colorls -lA --sd'
 
 # -------------------------------------------------------------------
 # Git

@@ -58,6 +58,10 @@ eval "$(ssh-agent -s)"
 # Set colors to match iTerm2 Terminal Colors
 export TERM=xterm-256color
 
+# Enable tab completion for flags by entering following line to your shell configuration file
+# If colorls is installed
+source $(dirname $(gem which colorls))/tab_complete.sh
+
 # Set alias
 [ -f "$HOME/.zsh_alias" ] && { echo "$HOME/.zsh_alias exist"; source $HOME/.zsh_alias; }
 [ -f "$ZSH/oh-my-zsh.sh" ] && { echo "$ZSH/oh-my-zsh.sh exist"; source $ZSH/oh-my-zsh.sh; }
